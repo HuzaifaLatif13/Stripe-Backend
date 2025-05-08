@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stripe Checkout</title>
+</head>
+<body>
+  <h1>Stripe Checkout with Netlify Functions</h1>
+  <label for="amount">Amount:</label>
+  <input type="number" id="amount" value="20" />
+  <label for="currency">Currency:</label>
+  <select id="currency">
+    <option value="usd">USD</option>
+    <option value="eur">EUR</option>
+    <option value="pkr">PKR</option>
+  </select>
+  <button id="checkout-button">Pay</button>
+
+  <script>
+    document.getElementById('checkout-button').addEventListener('click', async () => {
+      const amount = document.getElementById('amount').value;
+      const currency = document.getElementById('currency').value;
+
+      const response = await fetch('/.netlify/functions/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ amount, currency }),
+      });
+
+      const data = await response.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('Error creating checkout session');
+      }
+    });
+  </script>
+</body>
+</html>

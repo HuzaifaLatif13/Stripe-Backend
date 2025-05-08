@@ -1,0 +1,31 @@
+functionsDirectory = "C:\\Users\\known\\StudioProjects\\EXTRAS\\stripe-netlify-checkout\\netlify\\functions"
+functionsDirectoryOrigin = "config-v1"
+plugins = []
+headers = []
+redirects = []
+
+[build]
+publish = "C:\\Users\\known\\StudioProjects\\EXTRAS\\stripe-netlify-checkout"
+publishOrigin = "default"
+commandOrigin = "config"
+base = "C:\\Users\\known\\StudioProjects\\EXTRAS\\stripe-netlify-checkout"
+command = ""
+functions = "C:\\Users\\known\\StudioProjects\\EXTRAS\\stripe-netlify-checkout\\netlify\\functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[functions]
+
+[functions."*"]
